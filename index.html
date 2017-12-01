@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mosaico</title>
+	<style type="text/css">
+		#container{
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #333;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+
+	<script type="text/javascript">
+		
+		criarQuadrados();
+
+		function criarQuadrados(){
+			var container = document.getElementById("container");
+			var l_container = container.clientWidth;
+			var a_container = container.clientHeight;
+			var l_quadrado = 50;
+			var a_quadrado = 50;
+			var quadrado;
+			var quantidade = (l_container * a_container) / (l_quadrado * a_quadrado);
+
+			for(var i = 0; i < quantidade; i++){
+				quadrado = document.createElement("div");
+				quadrado.className = "quadrado-" + i;
+				quadrado.style.width = l_quadrado + "px";
+				quadrado.style.height = a_quadrado + "px";
+				quadrado.style.backgroundColor = "green";
+				quadrado.style.display = "inline-block";
+				quadrado.style.verticalAlign = "top";
+				quadrado.style.top = 0 + "px";
+				quadrado.style.left = 0 + "px";
+				quadrado.style.border = "1px solid #333";
+				quadrado.style.boxSizing = "border-box";
+				quadrado.style.cursor = "pointer";
+				quadrado.style.transition = "all 0.5s";
+				container.appendChild(quadrado);
+
+				quadrado.addEventListener("mouseover", function(){
+					this.style.backgroundColor = "#225622";
+				},false);
+
+				quadrado.addEventListener("mouseout", function(){
+					this.style.backgroundColor = "green";
+				},false);
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
